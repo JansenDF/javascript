@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map, Filter e Reduce</title>
+</head>
+<body>
+    <script>
+        const numeros = [2,3,6,7,9,11,12];
+        const novosNumeros = [];
+
+        for (n of numeros){
+            console.log(n);
+            novosNumeros.push(n * 2);
+        }
+        for (nv of novosNumeros){
+            console.log(nv);
+        }
+
+        console.log('usando MAP');
+
+        const arrayElevadoTres = numeros.map(numero => numero * 3); //MAP com arrowFunction
+
+        for (ar of arrayElevadoTres){
+            console.log(ar);
+        }
+
+        const nomes = [
+            'Jansen',
+            'Daniele',
+            'Lucas',
+            'Lorenzo',
+        ];
+
+        const nomesMinus = nomes.map(nom => nom.toLowerCase());
+        console.log(nomesMinus);
+
+        const nomesMaisc = nomes.map(nom => nom.toUpperCase());
+        console.log(nomesMaisc);
+
+        console.log('Filter');
+
+        let multDois = [];
+
+        for (n of numeros){
+            if (n % 2 == 0){
+                multDois.push(n);
+            }
+        }
+
+        console.log(multDois);
+
+        let multTres = numeros.filter(numero => numero % 3 == 0);
+        console.log(multTres);
+
+        console.log('Reduce')
+
+        console.log(numeros.reduce(function(acumulador, n){
+            return acumulador + n;
+        }, 0));
+
+        numReduce = numeros.reduce((acumulador, n) => acumulador + n, 0); //Reduce num ArrowFunction
+        console.log(numReduce);
+        
+        console.log('Reduce com array de objetos')
+
+        pessoas = [
+            {
+                'nome': 'Jansen',
+                'idade': 34,
+            },
+            {
+                'nome': 'Daniele',
+                'idade': 34,
+            },
+            {
+                'nome': 'Lorenzo',
+                'idade': 6,
+            },
+            {
+                'nome': 'Lucas',
+                'idade': 16,
+            },
+            {
+                'nome': 'Lorena',
+                'idade': 12,
+            },
+            {
+                'nome': 'Therezinha',
+                'idade': 58,
+            },
+        ];
+        let maioresEmenores = pessoas.reduce(function (acumulador, p) {
+            const pMaiorMenor = p.idade >= 18 ? 'maiores' : 'menores';
+            acumulador[pMaiorMenor].push(p);
+            return acumulador;
+        }, {maiores: [], menores: []});
+        console.log(maioresEmenores);
+    </script>
+</body>
+</html>

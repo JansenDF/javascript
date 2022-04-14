@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <script>
+        function imprimeNome(){
+            var nome = 'Jansen';
+            return function() {
+                return nome;
+            }
+        }
+
+        imprimeNome() // não imprime o nome
+
+        console.log(imprimeNome()) // imprime { return nome;}
+
+        var func = imprimeNome();
+
+        console.log(func()); // imprime o valor da variavel nome (Jansen)
+
+        function minhaBiblioteca(){
+            function auxiliar(valor){
+                return 13 + valor
+            }
+            return {
+                 add5(){
+                    return auxiliar(5);
+                },
+                add7(){
+                    return auxiliar(7);
+                }
+
+            }
+        }
+        var biblioteca = minhaBiblioteca();
+        console.log(biblioteca.add5());
+        console.log(biblioteca.add7())
+
+        function sobrenome(nome){
+            return function(){
+                console.log(nome, 'Lima');
+            }
+        }
+        function imprime1seg(){
+            let nome='Jansen';
+            setTimeout(sobrenome(nome), 1000);
+        }
+
+        imprime1seg();
+
+    </script>
+</body>
+</html>
