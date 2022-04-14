@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //while
+        var contador = 0;
+        while (contador < 5) {
+            console.log(contador);
+            ++contador;
+        }
+        var contador = 0;
+        while (contador < 5) {
+            console.log(contador);
+            if (contador == 3) {
+                break;
+            }
+            ++contador;
+        }
+        var contador = 1;
+        while (contador < 100) {
+            if (contador % 3 == 0 && contador % 5 == 0) {
+                console.log(contador + ' Ping ... Pong');
+            }else if (contador % 3 == 0) {
+                console.log(contador + ' Ping');
+            }else if (contador % 5 == 0) {
+                console.log(contador + ' Pong')
+            }
+            else {
+                console.log(contador +  ' ...')
+            }
+            ++contador;
+        }
+        //for
+        for (var contador = 0; contador < 10; ++contador) {
+            console.log(contador)
+        }
+        var numeros_aleatorios = [3, 4, 6, 6, 7, 9, 11];
+        for (var contador = 0; contador < numeros_aleatorios.length; ++contador) {
+            console.log(contador, numeros_aleatorios[contador]);
+        }
+        for (var contador = numeros_aleatorios.length - 1; contador >= 0; --contador) {
+            console.log(contador, numeros_aleatorios[contador]);
+        }
+        //Variavel fora do for e decrementando dentro do for
+        var contador = numeros_aleatorios.length - 1
+        for (; contador >= 0;) {
+            console.log(contador, numeros_aleatorios[contador]);
+            --contador
+        }
+        var numeros_aleatorios = [3, 4, 6, 6, 7, 9, 11];
+        for (var num of numeros_aleatorios) {
+            console.log(num);
+        }
+        //matriz
+        for(i = 0; i < 3; i++) {
+            for (j = 0; j < 3; j++) {
+                console.log(i,j)
+            }
+        }
+        for (p = 0; p < 100; ++p){
+            if (p % 3 == 0 && p % 5 == 0){
+                console.log(p + ' Ping...Pong')
+            }else if (p % 3 == 0) {
+                console.log(p + ' Ping...')
+            }
+            else if (p % 5 == 0) {
+                console.log(p + ' ...Pong')
+            }
+        }
+    </script>
+</body>
+</html>

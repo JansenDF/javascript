@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Javascript</title>
+</head>
+<body>
+    <script>
+        //Manipulação de objetos
+
+        var usuario = {
+            nome: 'Jansen',
+            idade: 34,
+            nasc: 1987,
+            hobbies: {
+                instrumentos: {'violao': 'Di Giogio', 'guitarra': 'Fender'},
+                tv: ['Jornal', 'Filmes']
+            }
+        }
+
+        console.log(usuario);
+        console.log(usuario.nasc)
+        console.log(usuario.hobbies.instrumentos)
+        //Usa-se [''] para acessar propriedades que estão dentro de aspas
+        console.log(usuario.hobbies.instrumentos['violao'])
+
+        //Merge de 2 ou mais objetos
+
+        var usuario2 = {
+            nome: 'Dani',
+            idade: 34
+        }
+
+        var infoExtra = {
+            cor: 'Branca',
+            cabelo: 'Preto'
+        }
+
+        var usuarioCompleto = Object.assign({}, infoExtra, usuario2)
+        console.log(usuarioCompleto)
+
+        //Melhor forma de realizar o merge - ...!
+
+        var novoUsuario = {
+            ...usuario2,
+            ...infoExtra
+        }
+
+        console.log(novoUsuario)
+
+        //Utilizar valor de uma variavel como propriedade de outra
+
+        var variavelEstado = 'estado'
+        var variavelUltimoNome = 'lastName'
+
+        var usuario3 = {
+            nome: 'Jansen',
+            [variavelUltimoNome]: 'Lima',
+            [variavelEstado]: 'DF'
+        }
+
+        //array de objetos dentro de variavel
+        //getters e setters
+
+        var usuario4 = [
+            {
+                id: 1,
+                nome: 'Jansen',
+                idade: 34
+            },
+            {
+                id: 2,
+                nome: 'Daniele',
+                idade: 33
+            },
+            {
+                id: 3,
+                nome: 'Lucas',
+                idade: 16
+            },
+            
+        ]
+        
+        var usuario = {
+            posicao: 0,
+            get atual () {
+                return usuario4[this.posicao]
+            },
+            set atual (p) {
+                this.posicao = p
+            },
+            proximo () {
+                ++this.posicao;
+            },
+            anterior () {
+                --this.posicao;
+            },
+        }
+
+        console.log(usuario.atual);
+        usuario.proximo();
+        console.log(usuario.atual);
+        usuario.anterior();
+        console.log(usuario.atual);
+        usuario.proximo();
+        console.log(usuario.atual);
+        usuario.proximo();
+        console.log(usuario.atual);
+
+        usuario.atual = 0;
+        console.log(usuario.atual);
+
+        usuario.atual = 2;
+        console.log(usuario.atual);
+
+        // var nomes = usuario4.map(function (n) {
+        //     return n.nome;
+        // })
+        // console.log(nomes)
+        // document.write(nomes)
+    </script>
+</body>
+</html>

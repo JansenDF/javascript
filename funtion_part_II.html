@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Part II</title>
+</head>
+<body>
+    <script>
+        console.log(this);
+
+        function Usuario(){
+            this.nome="Daniele";
+            this.idade=34;
+            this.soma=function soma(a, b) {
+                return a + b
+            }
+        }
+        // Usuario();
+
+
+        var usuario = new Usuario();
+        this.usuario.nome = "Jansen"
+        console.log(usuario);
+        console.log(usuario.soma(5, 10));
+
+        //Call - envio de parametros diretamente
+
+        function Personagem(p1, p2, p3){
+            console.log(p1, p2, p3)
+            console.log(this);
+        }
+
+        var person = {
+            nome: "Teshima",
+        }
+        Personagem.call(person, 'param1', 123, [4]);
+
+        // Apply - envio de parametros pelo Array
+
+        Personagem.apply(person, ['param1', 123, [4]]);
+
+        //Bind - Possibilita armazenar numa variavel a chamada de função, transformando a variavel numa chamada de função.
+
+        var binds = Personagem.bind(person, 'Olá', 'mundo', 2);
+        binds(); //Caso falte algum parametro, pode passar por aqui.
+
+        //Arrow functions
+
+        // var soma = (a, b) => {
+        //     return a + b;
+        // }
+
+        // forma curta
+
+        var soma = (a, b) => (a + b)
+        console.log(soma(7, 7));
+
+    </script>
+</body>
+</html>

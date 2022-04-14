@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <script>
+        //Função somar 2 numeros
+        function somarDoisNumeros (num1, num2) {
+            return num1 + num2
+        }
+
+        console.log(somarDoisNumeros(5, 4))
+
+        //Função somar total de numeros passado num array
+        function somaTotal (total) {
+            soma = 0
+            for (var t of total) {
+                soma += t
+            }
+            return soma
+        }
+
+        numeros = [1,2,3,4,5];
+        console.log(somaTotal(numeros))
+
+        //Função q recebe varios parametros
+
+        function endereco (rua, bairro, cidade, ...complemento) {
+            end = {
+                rua: rua,
+                bairro: bairro,
+                cidade: cidade,
+                compl: complemento
+            }
+
+            return end
+        }
+
+        console.log(endereco("Avenida Central", "Nucleo Bandeirante", "Brasilia", "DF", "Lote 12 Apto 301"))
+
+        //Variavel que é um função
+
+        var subtrai2Numeros = function (num1, num2) {
+            return num1 - num2
+        }
+
+        console.log(subtrai2Numeros(5,3))
+
+        //Function que chama outra function (callback)
+
+        function somaCallback (num1, num2, fnCallbac) {
+            return fnCallbac (num1 + num2)
+        }
+         //Após somar num1 + num2, retorna essa soma para a function como (total)
+        console.log(somaCallback(10,3, function (total) {
+            return total * 2
+        }))
+
+    </script>
+</body>
+</html>

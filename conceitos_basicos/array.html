@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var numeros = [5, 3, 12, 17, 10, 99];
+        console.log(numeros);
+        console.log(numeros[1]);
+        console.log(numeros.length);
+
+        console.log('numeros.pop() -> retorna o numero retirado (último do array).', numeros.pop());
+        console.log(numeros);
+
+        console.log('Imprime o índice 2 e 3 (slice).', numeros.slice(2,4))
+
+        console.log(numeros.join('-'))
+
+        var usuario = [
+            'Jansen',
+            34,
+            'Desenvolvedor',
+            2020,
+            'Brasileiro'
+        ];
+        console.log(usuario);
+
+        usuario.push('Casado');
+        console.log(usuario);
+
+        console.log(usuario.includes('Desenvolvedor')); // Procura se existe o include e retorna true se tiver
+        
+        console.log(usuario.indexOf(2020)); // Retorna a posição se existir
+        console.log(usuario.indexOf(2021)); // Retorna -1 se não existir.
+
+    </script>
+</body>
+</html>
